@@ -1,0 +1,18 @@
+<div class="todo-list">
+  <h2>To Do List</h2>
+
+
+  <form class="todo-form">
+    <input [(ngModel)]="nuevaTareaTexto" name="nuevaTareaTexto" placeholder="New Task">
+    <button (click)="agregarTarea()">Add</button>
+  </form>
+
+
+  <ul class="todo-items">
+    <li *ngFor="let tarea of tareas" class="todo-item" [class.completed]="tarea.completada">
+      <input type="checkbox" [(ngModel)]="tarea.completada">
+      <span>{{ tarea.texto }}</span>
+      <button (click)="eliminarTarea(tarea.id)">Delete</button>
+    </li>
+  </ul>
+
